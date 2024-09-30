@@ -1,0 +1,44 @@
+DATABASE CREATED USING SCHEMA
+
+CREATE TABLE AirQualityStations (
+    ID INT PRIMARY KEY,
+    Location VARCHAR(255),
+    Latitude FLOAT,
+    Longitude FLOAT
+);
+
+CREATE TABLE Pollutants (
+    ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Source VARCHAR(100),
+    MeasurementUnits VARCHAR(50)
+);
+
+CREATE TABLE AirQualityMeasurements (
+    ID INT PRIMARY KEY,
+    StationID INT,
+    Date DATE,
+    Time TIME,
+    PollutantID INT,
+    ConcentrationLevel FLOAT,
+    FOREIGN KEY (StationID) REFERENCES AirQualityStations(ID),
+    FOREIGN KEY (PollutantID) REFERENCES Pollutants(ID)
+);
+
+CREATE TABLE HealthData (
+    ID INT PRIMARY KEY,
+    Date DATE,
+    Area VARCHAR(100),
+    HealthIssues VARCHAR(255),
+    PopulationAffected INT
+);
+
+SQL Programming- Data Retrieval:
+SELECT * FROM AirQualityMeasurements WHERE Date BETWEEN '2023-01-01' AND '2023-12-31';
+
+DATA ANALYSIS
+SELECT PollutantID, AVG(ConcentrationLevel) as AvgConcentration 
+FROM AirQualityMeasurements 
+GROUP BY PollutantID;
+
+
