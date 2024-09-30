@@ -1,0 +1,8 @@
+SDG 11: Sustainable Cities and Communities.
+Problem Statement:
+Problem Statement: Urban air pollution in South Africa significantly impacts public health and the environment. Investigate the major pollutants in urban areas and their sources, and how they affect air quality and health outcomes.
+I will Design the ERD: With the following Entities:
+Air Quality Monitoring Stations: ID, Location, Latitude, Longitude.
+Pollutants: ID, Name, Source (e.g., vehicles, industries), Measurement Units.
+Air Quality Measurements: ID, Station ID (FK), Date, Time, Pollutant ID (FK), Concentration Level.
+Health Data: ID, Date, Area, Health Issues (e.g., asthma, respiratory diseases), Population Affected.
